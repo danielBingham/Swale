@@ -1,11 +1,36 @@
 <?PHP
+namespace Swale\Core\Database;
 
-abstract class Driver
+use Swale\Core\Query as Query;
+
+/**
+ *
+ */
+interface Driver
 {
+	/**
+	 *
+	 */
+	public function create($entity);
 
-	public abstract function create($entity);
-	public abstract function retrieve($entity, $id);
-	public abstract function update($entity, $id);
-	public abstract function delete($entity, $id);
+	/**
+	 *
+	 */
+	public function retrieve($entity, $id);
+
+	/**
+	 *
+	 */
+	public function update($entity, $id);
+	
+	/**
+	 *
+	 */
+	public function delete($entity, $id);
+	
+	/**
+	 *
+	 */
+	public function execute(Query $query);
 
 }
